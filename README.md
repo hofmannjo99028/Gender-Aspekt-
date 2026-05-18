@@ -1,4 +1,4 @@
-# Gender-Aspekt-
+# Gender-Aspekt
 Wikidata Berufe 
 # Gender Bias in Wikidata: Berufsklischees
 
