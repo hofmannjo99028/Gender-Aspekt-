@@ -9,8 +9,6 @@ Ein besonders relevanter Aspekt ist der sogenannte Gender Bias: die ungleiche Da
 
 ## 2. Forschungsfrage
 
-Die zentrale Forschungsfrage lautet:
-
 **Inwiefern führt die Struktur von Wikidata zu einer Unterrepräsentation bestimmter Berufe und zu geschlechtsspezifischen Verzerrungen?**
 
 
@@ -23,10 +21,11 @@ Verwendete Variablen:
 - Geschlecht (`gender`)
 - Anzahl von Personen pro Kombination
 
-Beispielhafte analysierte Berufe:
-- CEO (Führungsposition)
-- Arzt / Ärztin (medizinischer Bereich)
-- Pflege / Pflegerin (fürsorgliche Tätigkeit)
+analysierte Berufe:
+- CEO 
+- Büroangestellte 
+- Arzt / Ärztin 
+- Pflege / Pflegerin 
 
 
 ## 4. Methodik
@@ -35,7 +34,6 @@ Die Analyse erfolgte in mehreren Schritten:
 
 ### 4.1 Datenextraktion
 - Abfrage relevanter Berufe und Geschlechterverteilungen über SPARQL
-- Export der Daten als CSV-Dateien
 
 ### 4.2 Datenaufbereitung
 - Einlesen der Daten mit **Python (pandas)**
