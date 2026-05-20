@@ -1,137 +1,261 @@
-# Gender Bias in Wikidata: Vergleich von Berufsrepräsentationen
+# Gender Bias in Wikidata: Vergleich von Berufsrepräsentationen und Geschlechterverteilungen
 
 ## 1. Einleitung
 
-Digitale Wissensdatenbanken wie Wikidata spielen eine wichtige Rolle bei der Darstellung von Wissen. Gleichzeitig stellt sich die Frage, ob diese Daten neutrale Abbildungen der Realität sind oder bestehende gesellschaftliche Ungleichheiten widerspiegeln.
+Digitale Wissenssysteme wie Wikidata spielen eine zentrale Rolle bei der Sammlung, Strukturierung und Bereitstellung von Informationen. Sie werden zunehmend als Datenbasis für wissenschaftliche Analysen, maschinelles Lernen und gesellschaftliche Entscheidungsprozesse genutzt. Gleichzeitig wird verstärkt diskutiert, ob solche Systeme tatsächlich neutrale Abbildungen der Realität darstellen oder bestehende gesellschaftliche Ungleichheiten reproduzieren.
 
-In dieser Analyse wird untersucht, wie Berufe in Wikidata dargestellt sind und inwiefern diese Darstellung von der realen Verteilung in der Bevölkerung abweicht.
+Ein zentraler Aspekt ist dabei der sogenannte **Gender Bias**, also die systematische Verzerrung der Darstellung von Geschlechtern in Daten. Diese Verzerrungen können sich sowohl in der Sichtbarkeit von Personen als auch in der Darstellung bestimmter Berufsgruppen äußern.
+
+Ziel dieses Projekts ist es, diese möglichen Verzerrungen anhand von Berufsdaten in Wikidata zu untersuchen und mit realen Arbeitsmarktdaten zu vergleichen.
 
 
 ## 2. Forschungsfrage
 
 Die zentrale Forschungsfrage lautet:
 
-**Inwiefern unterscheidet sich die Darstellung von Berufen in Wikidata von der tatsächlichen Geschlechterverteilung in der Realität, und welche geschlechtsspezifischen Verzerrungen ergeben sich daraus?**
+**Inwiefern unterscheidet sich die Darstellung von Berufen in Wikidata von der tatsächlichen Geschlechterverteilung in der realen Arbeitswelt, und welche geschlechtsspezifischen Verzerrungen lassen sich daraus ableiten?**
+
+Daraus ergeben sich folgende Teilfragen:
+
+- Welche Berufe sind in Wikidata besonders stark repräsentiert?
+- Wie unterscheidet sich die Geschlechterverteilung innerhalb dieser Berufe?
+- Weicht der Männeranteil in Wikidata systematisch von realen Daten ab?
+- Welche strukturellen Verzerrungen lassen sich daraus erkennen?
 
 
 ## 3. Datenbasis
 
-Für die Analyse wurden zwei Datenquellen verwendet:
+Die Analyse basiert auf zwei unterschiedlichen Datenquellen:
 
-### 3.1 Wikidata
-- Extraktion von Berufen und Geschlechterverteilungen mittels SPARQL
-- Fokus auf Personen mit dokumentierter Relevanz
+### 3.1 Wikidata-Daten
+
+- Extraktion von Berufsdaten mittels SPARQL-Abfragen
+- Variablen:
+  - Beruf (`occupation`)
+  - Geschlecht (`genderLabel`)
+  - Anzahl von Personen (`count`)
+- Fokus auf Personen mit vorhandenen Wikidata-Einträgen
+
+Wichtiger Punkt:
+Wikidata erfasst nicht alle Personen, sondern primär solche mit öffentlicher Relevanz.
+
 
 ### 3.2 Reale Daten
-- Statistische Daten zur tatsächlichen Geschlechterverteilung in Berufen
-- Vergleich als Referenz zur Einordnung der Wikidata-Ergebnisse
+
+- Statistische Daten zur tatsächlichen Geschlechterverteilung in ausgewählten Berufen
+- Dienen als Referenz zur Bewertung der Wikidata-Ergebnisse
+
+Beispielhafte Berufe:
+- Ärzte
+- Pflegefachkräfte
+- CEOs
+- Büroangestellte
+- Lehrer
+- Erzieher
+- Politiker
+- Beamte
 
 
 ## 4. Methodik
 
-Die Analyse besteht aus drei zentralen Schritten:
+Die Analyse wurde in mehreren Schritten durchgeführt:
 
-### 4.1 Auswahl von Berufen
-Untersuchte Berufe umfassen sowohl:
-- prestigeträchtige Berufe (z. B. CEO, Politiker, Ärzte)
-- alltägliche Berufe (z. B. Pflege, Büroangestellte, Erzieher)
 
-### 4.2 Berechnung der Geschlechteranteile
-- Berechnung von Prozentanteilen (männlich/weiblich)
-- getrennt für Wikidata und reale Daten
+### 4.1 Auswahl der Berufe
 
-### 4.3 Vergleich Wikidata vs. Realität
-- direkte Gegenüberstellung der Anteile
-- Visualisierung mit Diagrammen
-- Fokus auf Abweichungen zwischen beiden Datensätzen
+Es wurden gezielt unterschiedliche Berufsgruppen ausgewählt, um verschiedene gesellschaftliche Bereiche abzudecken:
+
+#### Prestigeträchtige und statusorientierte Berufe
+- CEO
+- Politiker
+- Ärzte
+- Beamte
+
+#### Alltägliche sowie Care- und Sozialberufe
+- Pflegefachkräfte
+- Büroangestellte
+- Lehrer
+- Erzieher
+
+Ziel:
+Unterschiede zwischen hoch angesehenen und alltäglichen Berufen sichtbar machen.
+
+
+### 4.2 Datenaufbereitung
+
+- Einlesen der Daten mit **Python (pandas)**
+- Bereinigung der Daten (z. B. numerische Formatierung)
+- Zusammenführung von Wikidata- und realen Datensätzen
+
+
+### 4.3 Berechnung der Anteile
+
+Für jeden Beruf wurden berechnet:
+
+- Anteil männlicher Personen (in %)
+- Anteil weiblicher Personen (in %)
+
+für:
+- Wikidata
+
+schon gegeben:
+- reale Daten
+
+
+### 4.4 Vergleichsanalyse
+
+Die Analyse basiert auf einem direkten Vergleich:
+
+- Wikidata vs. Realität
+- Fokus auf Unterschiede im Männeranteil
+
+Darstellung durch:
+- Tabellen
+- Balkendiagramme
+
 
 ## 5. Ergebnisse
 
-### 5.1 Starke Unterschiede zwischen Wikidata und Realität
 
-Die Analyse zeigt deutliche Abweichungen:
+### 5.1 Allgemeine Beobachtungen
 
-- In Wikidata sind **männlich dominierte Berufe deutlich stärker vertreten**
-- Weiblich dominierte Berufe sind oft unterrepräsentiert
+Die Analyse zeigt deutliche Unterschiede zwischen Wikidata und realen Daten:
 
-### 5.2 Beispiele
-
-- **CEO:**
-  - Wikidata: stark männlich dominiert
-  - Realität: weniger stark unausgeglichen
-
-- **Ärzte:**
-  - Wikidata: sehr hoher Männeranteil (~90%)
-  - Realität: deutlich ausgeglichener (~50/50)
-
-- **Pflegeberufe:**
-  - Wikidata: weiblich dominiert
-  - Realität: ebenfalls weiblich dominiert, aber weniger extrem
-
-
-### 5.3 Gesamtmuster
-
-Ein zentrales Ergebnis ist:
-
-> Berufe mit höherem gesellschaftlichen Status und Sichtbarkeit sind in Wikidata überrepräsentiert und gleichzeitig stärker männlich dominiert.
-
-
-## 6. Vergleich des Männeranteils
-
-Ein besonders wichtiger Befund ist der Vergleich des Männeranteils zwischen Wikidata und realen Daten:
-
-- In fast allen untersuchten Berufen ist der **Männeranteil in Wikidata höher als in der Realität**
-- Dies gilt besonders für:
+- Wikidata enthält überproportional viele Einträge zu bestimmten Berufen
+- Besonders betroffen sind:
   - Führungspositionen
   - politische Berufe
   - akademische Berufe
 
-→ Daraus lässt sich schließen, dass Wikidata eine systematische Verzerrung in Richtung männlicher Sichtbarkeit aufweist.
+
+### 5.2 Geschlechterverteilung in Wikidata
+
+In vielen untersuchten Berufen zeigt sich:
+
+- ein sehr hoher Männeranteil in Wikidata
+- besonders stark bei:
+  - CEOs
+  - Politikern
+  - Beamten
 
 
-## 7. Interpretation
+### 5.3 Vergleich mit realen Daten
 
-Die Ergebnisse deuten darauf hin, dass Wikidata keine neutrale Abbildung der Realität darstellt.
+Der Vergleich zeigt:
 
-Mögliche Gründe:
+- In der Realität sind viele Berufe deutlich ausgeglichener
+- In Wikidata hingegen:
+  - stärkere Dominanz männlicher Personen
+  - geringere Sichtbarkeit weiblicher Personen
 
+
+### 5.4 Vergleich des Männeranteils (zentraler Befund)
+
+Ein zentrales Ergebnis ist der Vergleich des Männeranteils:
+
+In nahezu allen untersuchten Berufen gilt:
+
+> Der Männeranteil in Wikidata liegt deutlich über dem tatsächlichen Männeranteil in der realen Arbeitswelt.
+
+Besonders auffällig:
+
+- **Ärzte**
+  - Wikidata: sehr hoher Männeranteil (~90%)
+  - Realität: fast ausgeglichen
+
+- **Politiker / Beamte**
+  - Wikidata: extreme männliche Dominanz
+  - Realität: weniger extrem, aber weiterhin ungleich
+
+- **Care-Berufe**
+  - In beiden Datensätzen weiblich dominiert
+  - Wikidata zeigt jedoch teilweise verzerrte Intensitäten
+
+
+### 5.5 Sichtbarkeit von Berufen
+
+Ein weiteres wichtiges Ergebnis:
+
+- Berufe mit hoher gesellschaftlicher Sichtbarkeit (z. B. CEO, Politiker)
+  → stark in Wikidata vertreten
+
+- Alltägliche Berufe
+  → deutlich unterrepräsentiert
+
+
+## 6. Interpretation
+
+Die Ergebnisse lassen sich durch mehrere Faktoren erklären:
+
+### 6.1 Sichtbarkeitsbias
+
+Wikidata erfasst vor allem:
+- bekannte Personen
+- öffentlich relevante Figuren
+
+→ führt zur Überrepräsentation bestimmter Berufsgruppen
+
+
+### 6.2 Geschlechterbias
+
+Da:
+- gesellschaftliche Machtpositionen historisch stärker von Männern besetzt sind
+
+→ werden in Wikidata:
+- Männer häufiger dargestellt
+- Frauen seltener sichtbar
+
+
+### 6.3 Reproduktion gesellschaftlicher Strukturen
+
+Wikidata bildet nicht nur Realität ab, sondern:
+
+→ reproduziert bestehende Ungleichheiten
+
+Beispiel:
+- männliche CEOs → stark überrepräsentiert
+- weibliche Arbeit in Care-Berufen → weniger sichtbar
+
+
+## 7. Limitationen
+
+Die Analyse hat mehrere Einschränkungen:
+
+- Wikidata ist keine vollständige Datenbasis
 - Fokus auf „relevante“ Personen
-- höhere Sichtbarkeit männlicher Personen
-- historische Ungleichheiten in Berufen
-
-Dies führt dazu, dass bestehende Geschlechterverhältnisse:
-- verstärkt werden  
-- und in Daten reproduziert werden  
+- Unterschiede zwischen Datenquellen
+- Aggregation vereinfacht komplexe Realitäten
+- Geschlecht wird meist binär erfasst
 
 
-## 8. Limitationen
+## 8. Fazit
 
-- Wikidata enthält nicht alle Personen → Auswahlbias
-- reale Daten variieren je nach Quelle
-- Vergleich basiert auf aggregierten Daten
-- Geschlecht meist binär erfasst
+Die Analyse zeigt deutlich:
 
+- Wikidata stellt keine neutrale Abbildung der Realität dar
+- bestimmte Berufsgruppen sind überrepräsentiert
+- männlich dominierte Berufe erscheinen häufiger
+- weiblich dominierte Tätigkeiten sind teilweise unterrepräsentiert
 
-## 9. Fazit
+Besonders relevant ist der Befund, dass:
 
-Die Analyse zeigt, dass Wikidata eine verzerrte Darstellung von Berufen enthält.
+> der Männeranteil in Wikidata systematisch höher ist als in realen Daten.
 
-Insbesondere werden:
-- männlich dominierte Berufe stärker sichtbar
-- weiblich dominierte Tätigkeiten unterrepräsentiert
-
-Somit trägt Wikidata zur Reproduktion gesellschaftlicher Ungleichheiten in Daten bei.
+Dies deutet auf einen strukturellen Gender Bias hin, der sowohl aus gesellschaftlichen als auch aus datenbedingten Faktoren entsteht.
 
 
-## 10. Technologien
+## 9. Technologien
 
 - Python
 - pandas
-- seaborn / matplotlib
+- seaborn
+- matplotlib
 - SPARQL
-- Wikidata
+- Wikidata Query Service
 
 
-## 11. Reproduzierbarkeit
+## 10. Reproduzierbarkeit
 
-Alle Ergebnisse können mit den bereitgestellten Daten und dem Jupyter Notebook reproduziert werden.
+Alle Analyseschritte sind im Jupyter Notebook (`analysis.ipynb`) dokumentiert.
+
+Die verwendeten Datensätze befinden sich im Repository und ermöglichen eine vollständige Reproduktion der Ergebnisse.
